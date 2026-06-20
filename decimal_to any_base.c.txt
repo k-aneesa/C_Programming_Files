@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+void func(int num, int base);
+
+int main()
+{
+    int num,base;
+    printf("Enter the decimal number: ");
+    scanf("%d",&num);
+    
+    printf("Enter your choice: ");
+    scanf("%d", &base);
+    
+    if (base < 2 || base > 16) 
+    {
+        printf("Invalid base! Please choose between 2 and 16.\n");
+        return 1;
+    }
+    
+    //func(num, base);
+    printf("The base %d equal of decimal %d is : ", base, num);
+    func(num, base);
+    return 0;
+}
+
+void func(int num, int base)
+{
+    int i=0, j, r;
+    char arr[20];
+    
+    while(num > 0)
+    {
+        r=num % base;
+        num /= base;
+        if(r > 9 && r < 16)
+            arr[i++]=r-10+'A';  // convert A-F
+        else
+            arr[i++]=r+'0';     // convert to 0-9
+    }
+    // print in reverse order
+    for(j=i-1; j>=0; j--)
+    printf("%c", arr[j]);
+    
+}
