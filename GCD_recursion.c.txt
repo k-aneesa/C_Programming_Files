@@ -1,0 +1,36 @@
+
+#include <stdio.h>
+
+
+int gcd(int a, int b); // recursive function 
+
+
+int main()
+{
+    int a, b;
+
+    
+    printf("Enter two positive integers: ");
+    scanf("%d %d", &a, &b);
+
+   
+    if (a <= 0 || b <= 0)  // to check for the positive integer value
+    {
+        printf("Error! Please enter positive integers only.\n");
+    } 
+    else
+    {
+        printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
+    }
+
+    return 0;
+}
+
+
+// Recursive function to find GCD using Euclidean algorithm
+int gcd(int a, int b) 
+{
+    if (b == 0)
+        return a;  // Base case: if remainder is 0, GCD is 'a'
+    return gcd(b, a % b);  // Recursive step
+}
