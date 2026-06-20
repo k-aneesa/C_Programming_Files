@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>  // for sprintf()
+
+int main()
+{
+    int num;
+    char str[20];  //  to hold the string 
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    sprintf(str, "%d", num);    // Convert integer to string using sprintf
+
+   
+    printf("The string representation is: %s\n", str);   // outputting the string
+
+    return 0;
+}
